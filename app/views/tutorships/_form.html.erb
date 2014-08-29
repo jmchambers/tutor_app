@@ -1,0 +1,41 @@
+<%= form_for(@tutorship) do |f| %>
+  <% if @tutorship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tutorship.errors.count, "error") %> prohibited this tutorship from being saved:</h2>
+
+      <ul>
+      <% @tutorship.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tutor_id %><br>
+    <%= f.text_field :tutor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :student_id %><br>
+    <%= f.text_field :student_id %>
+  </div>
+  <div class="field">
+    <%= f.label :accepted %><br>
+    <%= f.check_box :accepted %>
+  </div>
+  <div class="field">
+    <%= f.label :created_by_student %><br>
+    <%= f.check_box :created_by_student %>
+  </div>
+  <div class="field">
+    <%= f.label :message %><br>
+    <%= f.text_area :message %>
+  </div>
+  <div class="field">
+    <%= f.label :subject_id %><br>
+    <%= f.text_field :subject_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<h1>Listing tutorships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tutor</th>
+      <th>Student</th>
+      <th>Accepted</th>
+      <th>Created by student</th>
+      <th>Message</th>
+      <th>Subject</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tutorships.each do |tutorship| %>
+      <tr>
+        <td><%= tutorship.tutor %></td>
+        <td><%= tutorship.student %></td>
+        <td><%= tutorship.accepted %></td>
+        <td><%= tutorship.created_by_student %></td>
+        <td><%= tutorship.message %></td>
+        <td><%= tutorship.subject %></td>
+        <td><%= link_to 'Show', tutorship %></td>
+        <td><%= link_to 'Edit', edit_tutorship_path(tutorship) %></td>
+        <td><%= link_to 'Destroy', tutorship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tutorship', new_tutorship_path %>
